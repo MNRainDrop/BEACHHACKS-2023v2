@@ -8,5 +8,5 @@ class block():
         self.width = self.height = 50
 
     def display(self, screen):
-        p.draw.rect(screen, p.Color("#ffffff"), p.Rect(self.x, self.y, self.width, self.height))
+        p.draw.rect(screen, p.Color("white"), p.Rect(self.x, self.y, self.width, self.height))
         

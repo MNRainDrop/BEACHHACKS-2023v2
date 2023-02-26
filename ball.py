@@ -23,4 +23,4 @@ class ball:
         self.y += self.speedy * sin(self.theta)
 
     def draw(self, screen):
-        p.draw.circle(screen, p.Color("green"), (self.x, self.y), self.radius)
+        p.draw.circle(screen, p.Color("blue"), (self.x, self.y), self.radius)

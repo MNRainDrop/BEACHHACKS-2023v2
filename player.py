@@ -49,8 +49,15 @@ class player():
     def display(self, screen, pos):
         p.draw.rect(screen, p.Color("#ffffff"), p.Rect(self.x, self.y, self.width, self.height))
         self.drawShot(screen, pos)
+        self.displayLife(screen)
         if not self.hasBall:
             self.ball.draw(screen)
+        
+    def displayLife(self,screen):
+        #p.draw.circle(screen, p.Color("blue"), (screenSize+100, screenSize-100), 50)
+        for i in range(self.lives):
+            p.draw.circle(screen, p.Color("pink"), (screenSize+100, (screenSize-100)-i*200), 50) #change into heart from image
+
     
 
     def update(self):
