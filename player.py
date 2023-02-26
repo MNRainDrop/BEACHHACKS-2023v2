@@ -38,12 +38,15 @@ class player():
     def display(self, screen, pos):
         p.draw.rect(screen, p.Color("#ffffff"), p.Rect(self.x, self.y, self.width, self.height))
         self.drawShot(screen, pos)
-    
+        if not self.hasBall:
+            self.ball.draw(screen)
     
 
     def update(self):
         self.middlex = self.x + self.width//2
         self.middley = self.y + self.height//2
+        if not self.hasBall:
+            self.ball.update()
 
     def drawShot(self, screen, pos):
         if self.hasBall:

@@ -1,14 +1,24 @@
 from settings import *
+import pygame as p
+from math import *
 
 class ball:
     def __init__(self, x, y, pos) -> None:
         self.radius = 5
         self.x = x
         self.y = y
-        self.speed = 5
+        self.speedx = 5
+        self.speedy = 5
         self.direction = pos
+        self.theta = atan2(pos[1]-y, pos[0]-x)
     
     def update(self):
-        self.x += self.direction[0]
+        if self.x < 0 or self.x > 800:
+            self.speedx = self.speedx * -1
+        if self.y < 0:
+            self.speedy = self.speedy * -1
+        self.x += self.speedx * cos(self.theta)
+        self.y += self.speedy * sin(self.theta)
 
-        
+    def draw(self, screen):
+        p.draw.circle(screen, p.Color("red"), (self.x, self.y), self.radius)
