@@ -7,9 +7,8 @@ class ball:
         self.radius = 5
         self.x = x
         self.y = y
-        self.speedx = 5
-        self.speedy = 5
-        self.direction = pos
+        self.speedx = 10
+        self.speedy = 10
         self.theta = atan2(pos[1]-y, pos[0]-x)
     
     def update(self):

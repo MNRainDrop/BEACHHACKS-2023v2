@@ -31,8 +31,18 @@ class player():
             self.x = 800-self.width
 
     def shootBall(self, pos):
-        self.hasBall = False
-        self.ball = ball(self.middlex, self.middley, pos)
+        if self.hasBall:
+            self.hasBall = False
+            self.ball = ball(self.middlex, self.middley, pos)
+    
+    def catchBall(self):
+        if not self.hasBall:
+            if self.x <= self.ball.x and self.x + self.width >= self.ball.x:
+                if self.ball.y >= self.y:
+                    self.hasBall = True
+                    del self.ball
+                    self.ball = None
+
 
 # display related functions
     def display(self, screen, pos):
@@ -47,6 +57,7 @@ class player():
         self.middley = self.y + self.height//2
         if not self.hasBall:
             self.ball.update()
+            self.catchBall()
 
     def drawShot(self, screen, pos):
         if self.hasBall:

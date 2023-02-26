@@ -17,6 +17,7 @@ def main():
                 running = False
             elif e.type ==p.MOUSEBUTTONDOWN:
                 bb.player.shootBall(pos)
+                
 
         keys = p.key.get_pressed()
         if keys[p.K_a]:
