@@ -29,6 +29,7 @@ def main():
             bb = blockbreaker()
         if keys[p.K_ESCAPE]:
             running = False
+
         bb.update()
         bb.display(screen, pos)
 

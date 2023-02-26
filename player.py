@@ -12,12 +12,12 @@ class player():
         self.middley = self.y + self.height//2
 
         #player movement
-        self.speed = 5
+        self.speed = 8
         self.ball = None
 
         self.hasBall = True
 
-# action related functions
+    # action related functions
     def moveLeft(self):
         if self.x > 0:
             self.x -= self.speed
@@ -35,16 +35,13 @@ class player():
             self.hasBall = False
             self.ball = ball(self.middlex, self.middley, pos)
     
-    def catchBall(self):
+    def collideBall(self):
         if not self.hasBall:
             if self.x <= self.ball.x and self.x + self.width >= self.ball.x:
                 if self.ball.y >= self.y:
-                    self.hasBall = True
-                    del self.ball
-                    self.ball = None
+                    self.ball.speedy *= -1
 
-
-# display related functions
+    # display related functions
     def display(self, screen, pos):
         p.draw.rect(screen, p.Color("#ffffff"), p.Rect(self.x, self.y, self.width, self.height))
         self.drawShot(screen, pos)
@@ -57,7 +54,7 @@ class player():
         self.middley = self.y + self.height//2
         if not self.hasBall:
             self.ball.update()
-            self.catchBall()
+            self.collideBall()
 
     def drawShot(self, screen, pos):
         if self.hasBall:
