@@ -32,13 +32,12 @@ class player():
 
     def shootBall(self, pos):
         self.hasBall = False
-        self.ball = ball(pos)
+        self.ball = ball(self.middlex, self.middley, pos)
 
 # display related functions
     def display(self, screen, pos):
         p.draw.rect(screen, p.Color("#ffffff"), p.Rect(self.x, self.y, self.width, self.height))
         self.drawShot(screen, pos)
-        p.display.flip()
     
     
 
