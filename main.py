@@ -7,7 +7,6 @@ def main():
     p.init()
     screen = p.display.set_mode((screenSize, screenSize))
     bb = blockbreaker()
-
     clock = p.time.Clock()
     running = True
     while running:

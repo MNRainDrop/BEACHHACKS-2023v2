@@ -1,12 +1,14 @@
 from settings import *
 
 class ball:
-    def __init__(self) -> None:
+    def __init__(self, x, y, pos) -> None:
         self.radius = 5
-        self.x = screenSize//2 - self.radius//2
-        self.y = screenSize - 100 - 5
-        self.velocity = 5
+        self.x = x
+        self.y = y
+        self.speed = 5
+        self.direction = pos
     
     def update(self):
-        self.x += self.velocity
+        self.x += self.direction[0]
+
         
