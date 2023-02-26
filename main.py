@@ -3,7 +3,8 @@ from settings import *
 from blockbreaker import blockbreaker
 
 def main():
-    #initialize pygame
+    #initialize pygame4
+    
     p.init()
     screen = p.display.set_mode((screenSize, screenSize))
     bb = blockbreaker()
@@ -24,6 +25,8 @@ def main():
             bb.player.moveLeft()
         if keys[p.K_d]:
             bb.player.moveRight()
+        if keys[p.K_r]:
+            bb = blockbreaker()
 
         bb.update()
         bb.display(screen, pos)
