@@ -1,9 +1,10 @@
 import pygame as p
+from settings import *
 
 class block():
     def __init__(self, x, y) -> None:
-        self.x = x*100 + 25
-        self.y = y*100 + 50
+        self.x = x*screenSize//8 + screenSize//32
+        self.y = y*screenSize//8 + screenSize//32
         self.width = self.height = 50
 
     def display(self, screen):

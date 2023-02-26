@@ -14,6 +14,7 @@ class player():
         #player movement
         self.speed = 8
         self.ball = None
+        self.lives = 3
 
         self.hasBall = True
 
@@ -25,10 +26,10 @@ class player():
             self.x = 0
 
     def moveRight(self):
-        if self.x < 800-self.width:
+        if self.x < screenSize-self.width:
             self.x += self.speed        
         else:
-            self.x = 800-self.width
+            self.x = screenSize-self.width
 
     def shootBall(self, pos):
         if self.hasBall:
@@ -37,9 +38,12 @@ class player():
     
     def collideBall(self):
         if not self.hasBall:
-            if self.x <= self.ball.x and self.x + self.width >= self.ball.x:
-                if self.ball.y >= self.y:
+            if self.ball.y > self.y:
+                if self.x <= self.ball.x and self.x + self.width >= self.ball.x:
                     self.ball.speedy *= -1
+                else:
+                    self.hasBall = True
+                    self.lives -= 1
 
     # display related functions
     def display(self, screen, pos):
