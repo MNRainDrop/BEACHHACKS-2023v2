@@ -30,15 +30,22 @@ class blockbreaker:
         if not self.player.hasBall:
             for block in self.blocks:
                 remove = False
+                #collides with top and bottom, only one working atm
                 if block.x < self.player.ball.x and block.x + block.width > self.player.ball.x:
-                    if block.y+block.height > self.player.ball.y and block.y < self.player.ball.y:
-                        self.player.ball.speedy = self.player.ball.speedy * -1
+                    if abs(block.y+block.height - self.player.ball.y) < 5:
+                        self.player.ball.speedy *= -1
                         remove = True
-                # if block.y < self.player.ball.y and block.y + block.height > self.player.ball.y:
-                #     if block.x+block.width > self.player.ball.x and block.x < self.player.ball.x:
-                #         self.player.ball.speedy = self.player.ball.speedy * -1
-                #         self.player.ball.speedx = self.player.ball.speedx * -1
-                #         remove = True
+                    if abs(block.y - self.player.ball.y) < 5:
+                        self.player.ball.speedy *= -1
+                        remove = True
+                #collides with sides, but shoots straight with bouncing
+                if block.y < self.player.ball.y and block.y + block.height > self.player.ball.y:
+                    if abs(block.x+block.width- self.player.ball.x) < 5:
+                        self.player.ball.speedx *= -1
+                        remove = True
+                    if abs(block.x+ - self.player.ball.x) < 5:
+                        self.player.ball.speedx *= -1
+                        remove = True
                 if remove:
                     self.blocks.remove(block)
                     
