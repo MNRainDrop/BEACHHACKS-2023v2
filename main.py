@@ -6,7 +6,7 @@ def main():
     #initialize pygame4
     
     p.init()
-    screen = p.display.set_mode((screenSize, screenSize))
+    screen = p.display.set_mode((screenSize + 200, screenSize))
     bb = blockbreaker()
     clock = p.time.Clock()
     running = True
@@ -28,6 +28,8 @@ def main():
         if keys[p.K_r]:
             bb = blockbreaker()
         if keys[p.K_ESCAPE]:
+            running = False
+        if bb.player.lives <= 0:
             running = False
 
         bb.update()
