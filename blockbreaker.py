@@ -5,8 +5,8 @@ from block import block
 class blockbreaker:
     def __init__(self) -> None:
         self.player = player()
-        self.rows = 1
-        self.cols = 1
+        self.rows = 4
+        self.cols = 8
         self.blocks = list()
         self.initBlocks()
 
@@ -29,5 +29,16 @@ class blockbreaker:
     def blockCollision(self):
         if not self.player.hasBall:
             for block in self.blocks:
+                remove = False
                 if block.x < self.player.ball.x and block.x + block.width > self.player.ball.x:
-                    # if block.y
+                    if block.y+block.height > self.player.ball.y and block.y < self.player.ball.y:
+                        self.player.ball.speedy = self.player.ball.speedy * -1
+                        remove = True
+                # if block.y < self.player.ball.y and block.y + block.height > self.player.ball.y:
+                #     if block.x+block.width > self.player.ball.x and block.x < self.player.ball.x:
+                #         self.player.ball.speedy = self.player.ball.speedy * -1
+                #         self.player.ball.speedx = self.player.ball.speedx * -1
+                #         remove = True
+                if remove:
+                    self.blocks.remove(block)
+                    
