@@ -7,6 +7,6 @@ class ball:
         self.y = screenSize - 100 - 5
         self.velocity = 5
     
-    def update():
-        pass
+    def update(self):
+        self.x += self.velocity
         
