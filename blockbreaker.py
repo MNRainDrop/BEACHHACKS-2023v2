@@ -1,4 +1,5 @@
 from settings import *
+import pygame as p
 from player import player
 from block import block
 
@@ -21,7 +22,8 @@ class blockbreaker:
         self.blockCollision()
 
     def display(self, screen, pos):
-        screen.fill("black")
+        screen.fill("red")
+        p.draw.line(screen, p.Color("black"), (screenSize, 0), (screenSize,screenSize))
         self.player.display(screen, pos)
         for block in self.blocks:
             block.display(screen)
