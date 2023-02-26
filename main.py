@@ -12,7 +12,7 @@ def main():
 
     #initialize pictures
     images.append(p.transform.scale(p.image.load("assets/heart.png"), (100, 100)))
-
+    images.append(p.transform.scale(p.image.load("assets/chocolate.jpeg"), (50, 50)))
     running = True
     while running:
         pos = p.mouse.get_pos()
