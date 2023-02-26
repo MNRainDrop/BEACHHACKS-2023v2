@@ -9,6 +9,10 @@ def main():
     screen = p.display.set_mode((screenSize + 200, screenSize))
     bb = blockbreaker()
     clock = p.time.Clock()
+
+    #initialize pictures
+    images.append(p.transform.scale(p.image.load("assets/heart.png"), (100, 100)))
+
     running = True
     while running:
         pos = p.mouse.get_pos()

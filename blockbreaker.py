@@ -22,7 +22,7 @@ class blockbreaker:
         self.blockCollision()
 
     def display(self, screen, pos):
-        screen.fill("red")
+        screen.fill("pink")
         p.draw.line(screen, p.Color("black"), (screenSize, 0), (screenSize,screenSize))
         self.player.display(screen, pos)
         for block in self.blocks:
