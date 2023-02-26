@@ -1,2 +1,2 @@
-screenSize = 400
+screenSize = 800
 maxFPS = 60

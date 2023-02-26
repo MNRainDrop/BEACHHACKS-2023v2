@@ -1,11 +1,12 @@
 import pygame as p
 from settings import *
+from blockbreaker import blockbreaker
 
 def main():
     #initialize pygame
     p.init()
     screen = p.display.set_mode((screenSize, screenSize))
-
+    bb = blockbreaker()
 
     clock = p.time.Clock()
     running = True
@@ -17,11 +18,15 @@ def main():
                 pos = p.mouse.get_pos()
             elif e.type == p.MOUSEBUTTONUP:
                 pos = p.mouse.get_pos()
-            elif e.type == p.KEYDOWN:
-                if e.key == p.K_d:
-                    pass
-                if e.key == p.K_a:
-                    pass
+                
+        keys=p.key.get_pressed()
+        if keys[p.K_a]:
+            bb.player.moveLeft()
+        if keys[p.K_d]:
+            bb.player.moveRight()
+
+        bb.display(screen)
+
         clock.tick(maxFPS)
         p.display.flip()
 

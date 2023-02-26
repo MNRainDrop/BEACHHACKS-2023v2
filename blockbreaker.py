@@ -9,5 +9,11 @@ class blockbreaker:
         self.ball = ball()
         self.blocks = list()
 
-    
+    def update(self):
+        #player
+        self.player.update()
+
+    def display(self, screen):
+        screen.fill("black")
+        self.player.display(screen)
         
