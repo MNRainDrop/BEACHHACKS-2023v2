@@ -19,7 +19,7 @@ def main():
             elif e.type == p.MOUSEBUTTONUP:
                 pos = p.mouse.get_pos()
                 
-        keys=p.key.get_pressed()
+        keys = p.key.get_pressed()
         if keys[p.K_a]:
             bb.player.moveLeft()
         if keys[p.K_d]:

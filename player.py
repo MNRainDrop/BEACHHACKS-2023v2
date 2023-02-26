@@ -17,7 +17,13 @@ class player():
         p.display.flip()
     
     def moveLeft(self):
-        self.x -= self.speed
+        if self.x > 0:
+            self.x -= self.speed
+        else:
+            self.x = 0
 
     def moveRight(self):
-        self.x += self.speed        
+        if self.x < 800-self.width:
+            self.x += self.speed        
+        else:
+            self.x = 800-self.width
