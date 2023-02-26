@@ -5,7 +5,8 @@ from block import block
 
 class blockbreaker:
     def __init__(self) -> None:
-        self.player = player()
+        self.level = 1
+        self.player = player(self.level)
         self.rows = 4
         self.cols = 8
         self.blocks = list()
@@ -20,6 +21,13 @@ class blockbreaker:
         #player
         self.player.update()
         self.blockCollision()
+        if len(self.blocks) == 0:
+            self.levelUp()
+
+    def levelUp(self):
+        self.level += 1
+        self.player = player(self.level)
+        self.initBlocks()
 
     def display(self, screen, pos):
         screen.fill("pink")

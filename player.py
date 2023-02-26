@@ -3,7 +3,7 @@ import pygame as p
 from ball import ball
 
 class player():
-    def __init__(self) -> None:
+    def __init__(self, level) -> None:
         self.width = 100
         self.height = 10
         self.x = screenSize//2 - self.width//2
@@ -12,10 +12,10 @@ class player():
         self.middley = self.y + self.height//2
 
         #player movement
-        self.speed = 8
+        self.speed = 8 + level
         self.ball = None
         self.lives = 3
-
+        self.level = level
         self.hasBall = True
 
     # action related functions
@@ -34,7 +34,7 @@ class player():
     def shootBall(self, pos):
         if self.hasBall:
             self.hasBall = False
-            self.ball = ball(self.middlex, self.middley, pos)
+            self.ball = ball(self.middlex, self.middley, pos, self.level)
     
     def collideBall(self):
         if not self.hasBall:

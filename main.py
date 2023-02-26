@@ -33,6 +33,8 @@ def main():
             bb = blockbreaker()
         if keys[p.K_ESCAPE]:
             running = False
+        if keys[p.K_UP]:
+            bb.levelUp()
         if bb.player.lives <= 0:
             running = False
 
