@@ -19,4 +19,9 @@ class blockbreaker:
         for i in range(self.cols):
             for j in range(self.rows):
                 self.blocks[i][j].display(screen)
-        
+
+    def collision():
+        for i in range(self.cols):
+            for j in range(self.rows):
+                if(self.ball.x == self.rows.x and self.ball.y == self.cols.y):
+                    ball.theta = 0
